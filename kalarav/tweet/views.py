@@ -5,7 +5,8 @@ from .models import Tweet
 
 def Home(request,*args,**kwargs):  #* home page
     print(args, kwargs)
-    return HttpResponse("<h1>Hello milind levi</h1>")
+    # return HttpResponse("<h1>Hello milind levi</h1>")
+    return render(request,"pages/home.html",context={},status=200)
 
 
 def Tweet_Home_Details(request,tweet_id,*args,**kwargs):
@@ -20,7 +21,7 @@ def Tweet_Home_Details(request,tweet_id,*args,**kwargs):
         # raise Http404 
         data['message']="Not Found"
         status = 404
-        
+
     return JsonResponse(data, status=status)
     
     #! return HttpResponse(f"<h1>Hellopranshu {tweet_id} , {obj.content}  </h1>")
