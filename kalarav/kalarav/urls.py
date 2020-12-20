@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home),
     path('tweet/<int:tweet_id>',  Tweet_Home_Details),
+    
 ]
