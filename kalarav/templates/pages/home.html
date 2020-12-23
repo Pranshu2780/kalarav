@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
+
 {% block content %}
 <h1>Welcome</h1>
 {% endblock content%}
+
+<script>
+    const xhr = new XMLHttpRequest() 
+    const method = 'GET' 
+    const url = "/tweet"
+    const responseType = "json" 
+
+    xhr.responseType=responseType
+    xhr.open(method, url)
+
+    xhr.onload = function (){
+        console.log("heelo") 
+        console.log(xhr.response)
+        const serverresponse= xhr.response
+        var listeditems=serverresponse.response
+        console.log(listeditems)
+    }
+    xhr.send()          
+</script>

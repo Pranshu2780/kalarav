@@ -9,6 +9,14 @@ def Home(request,*args,**kwargs):  #* home page
     return render(request,"pages/home.html",context={},status=200)
 
 
+def Tweet_list(request,*args,**kwargs):
+    qs = Tweet.objects.all()
+    tweet_list =[{"id":x.id,"content":x.content} for x in qs ]
+    data={ 
+        "response" :tweet_list
+    }
+    return JsonResponse(data) 
+
 def Tweet_Home_Details(request,tweet_id,*args,**kwargs):
     data={
         "id":tweet_id,
