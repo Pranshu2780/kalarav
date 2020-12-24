@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome</h1>
-{% endblock content%}
+<h1>Welcome me</h1>
+<div id = "tweets" >
+     Replacement ff
+</div>
 
-<script>
+
+<script type="application/javascript" >
+    const tweetElements = document.getElementById("tweets")
+    tweetElements.innerHTML ='Loading...'
+    
+     console.log('kite') 
     const xhr = new XMLHttpRequest() 
     const method = 'GET' 
     const url = "/tweet"
@@ -14,11 +21,13 @@
     xhr.open(method, url)
 
     xhr.onload = function (){
-        console.log("heelo") 
+        // console.log("hello") 
         console.log(xhr.response)
-        const serverresponse= xhr.response
-        var listeditems=serverresponse.response
-        console.log(listeditems)
+        const serverResponse= xhr.response
+        var listedItems=serverResponse.response
+        console.log(listedItems)
     }
     xhr.send()          
 </script>
+
+{% endblock content%}
